@@ -19,7 +19,9 @@ if month == 2 and not 1 <= day <= 29 and year % 4 == 0 :
 
 today = time.localtime()
 age = today.tm_year - year
-if today.tm_mon - month < 0:
-    age -= 1
+if today.tm_mon - month <= 0:
+    if today.tm_day - day <= 0:
+        age -= 1
+
     
 print(f"You are {age} years old.")
